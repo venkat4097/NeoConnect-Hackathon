@@ -1,7 +1,7 @@
 # NeoConnect
 
 NeoConnect is a premium enterprise platform designed for transparent case management, staff sentiment analysis, and operational clarity. It features a state-of-the-art **Black Theme** UI, high-fidelity analytics, and a public impact ledger to foster a culture of transparency and accountability within organizations.
-
+live link-https://neo-connect-hackathon-kexq.vercel.app/
 ## 🚀 Features
 
 - **Case Management**: A streamlined system to securely submit, track, and manage operational cases (Safety, HR, Facilities, etc.).
