@@ -28,16 +28,16 @@ export default function Dashboard() {
     try {
       let res
       if (currentUser.role === "staff") {
-        res = await API.get("/cases")
+        res = await API.get("/api/cases")
       } else if (currentUser.role === "case_manager") {
-        res = await API.get("/cases/my")
+        res = await API.get("/api/cases/my")
       } else {
-        res = await API.get("/cases")
+        res = await API.get("/api/cases")
       }
       setCases(res.data as any[])
 
       if (currentUser.role === "secretariat" || currentUser.role === "admin") {
-        const usersRes = await API.get("/auth/users")
+        const usersRes = await API.get("/api/auth/users")
         setManagers((usersRes.data as any[]).filter((u: any) => u.role === "case_manager"))
       }
     } catch (err) {
@@ -49,7 +49,7 @@ export default function Dashboard() {
 
   const assignCase = async (caseId: string, managerId: string) => {
     try {
-      await API.put(`/cases/${caseId}/assign`, { managerId })
+      await API.put(`/api/cases/${caseId}/assign`, { managerId })
       loadData(user)
     } catch (err) {
       alert("Error assigning case")
@@ -62,7 +62,7 @@ export default function Dashboard() {
     const isPublic = confirm("Make this case public in the Hub?")
     if (actionTaken && outcome) {
       try {
-        await API.put(`/cases/${caseId}/resolve`, { actionTaken, outcome, isPublic })
+        await API.put(`/api/cases/${caseId}/resolve`, { actionTaken, outcome, isPublic })
         loadData(user)
       } catch (err) {
         alert("Error resolving case")
@@ -72,7 +72,7 @@ export default function Dashboard() {
 
   const updateStatus = async (caseId: string, status: string) => {
     try {
-      await API.put(`/cases/${caseId}/status`, { status })
+      await API.put(`/api/cases/${caseId}/status`, { status })
       loadData(user)
     } catch (err) {
       alert("Error updating status")

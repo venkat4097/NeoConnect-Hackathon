@@ -23,7 +23,7 @@ export default function Register() {
     setLoading(true)
     setError("")
     try {
-      await API.post("/auth/register", form)
+      await API.post("/api/auth/register", form)
       alert("Registration successful! Please login.")
       router.push("/login")
     } catch (err: any) {

@@ -17,8 +17,8 @@ export default function PublicHub() {
 
   const fetchData = async () => {
     try {
-      const casesRes = await API.get("/cases/public")
-      const minutesRes = await API.get("/minutes")
+      const casesRes = await API.get("/api/cases/public")
+      const minutesRes = await API.get("/api/minutes")
       setPublicCases(casesRes.data as any[])
       setMinutes(minutesRes.data as any[])
     } catch (err) {

@@ -18,7 +18,7 @@ export default function Login() {
     setLoading(true)
     setError("")
     try {
-      const res: any = await API.post("/auth/login", { email, password })
+      const res: any = await API.post("/api/auth/login", { email, password })
       localStorage.setItem("token", res.data.token)
       localStorage.setItem("user", JSON.stringify(res.data.user))
       router.push("/dashboard")

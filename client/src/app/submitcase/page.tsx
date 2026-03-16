@@ -36,7 +36,7 @@ export default function SubmitCase() {
       formData.append("anonymous", String(anonymous))
 
 
-      await API.post("/cases", formData, {
+      await API.post("/api/cases", formData, {
         headers: { "Content-Type": "multipart/form-data" }
       })
 

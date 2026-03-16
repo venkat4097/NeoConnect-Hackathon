@@ -28,7 +28,7 @@ export default function Analytics() {
 
   const fetchStats = async () => {
     try {
-      const res = await API.get("/cases")
+      const res = await API.get("/api/cases")
       const cases = res.data as any[]
 
       const deptMap: any = {}

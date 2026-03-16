@@ -30,7 +30,7 @@ export default function Polls() {
 
   const fetchPolls = async () => {
     try {
-      const res = await API.get("/polls")
+      const res = await API.get("/api/polls")
       setPolls(res.data as any[])
     } catch (err) {
       console.error(err)
@@ -41,7 +41,7 @@ export default function Polls() {
 
   const handleVote = async (pollId: string, optionIndex: number) => {
     try {
-      await API.post(`/polls/${pollId}/vote`, { optionIndex })
+      await API.post(`/api/polls/${pollId}/vote`, { optionIndex })
       fetchPolls()
     } catch (err: any) {
       alert(err.response?.data || "Error voting")
@@ -51,7 +51,7 @@ export default function Polls() {
   const createPoll = async () => {
     try {
       const options = newOptions.filter(o => o.trim() !== "")
-      await API.post("/polls", { question: newQuestion, options })
+      await API.post("/api/polls", { question: newQuestion, options })
       setNewQuestion("")
       setNewOptions(["", ""])
       fetchPolls()
